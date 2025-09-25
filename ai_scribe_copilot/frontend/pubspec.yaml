@@ -1,0 +1,62 @@
+name: ai_scribe_copilot
+description: A medical transcription app.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For making HTTP requests
+  http: ^0.13.5
+
+  # For audio recording
+  flutter_sound: ^9.2.13
+
+  # For accessing local file system paths
+  path_provider: ^2.0.11
+
+  # For handling permissions (like microphone)
+  permission_handler: ^10.2.0
+
+  # For state management
+  provider: ^6.0.5
+
+  # For local storage (to queue audio chunks)
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # For generating unique IDs for queued chunks
+  uuid: ^3.0.7
+
+  # For checking network connectivity
+  connectivity_plus: ^3.0.3
+
+  # For native share sheet
+  share_plus: ^6.3.0
+
+  # For local notifications
+  flutter_local_notifications: ^13.0.0
+
+  # For lifecycle events (app pausing, resuming)
+  flutter_lifecycle_aware: ^1.0.1
+
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  hive_generator: ^2.0.0
+  build_runner: ^2.3.3
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
