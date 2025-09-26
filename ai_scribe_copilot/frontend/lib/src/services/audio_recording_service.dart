@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:typed_data';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -6,8 +7,8 @@ class AudioRecordingService {
   FlutterSoundRecorder? _recorder;
   bool _isInitialized = false;
 
-  StreamController<Food>? _recordingDataController;
-  Stream<Food>? get recordingStream => _recordingDataController?.stream;
+  StreamController<Uint8List>? _recordingDataController;
+  Stream<Uint8List>? get recordingStream => _recordingDataController?.stream;
 
   StreamController<double>? _dbLevelController;
   Stream<double>? get dbLevelStream => _dbLevelController?.stream;
@@ -27,7 +28,7 @@ class AudioRecordingService {
     await _recorder!.openRecorder();
     _isInitialized = true;
 
-    _recordingDataController = StreamController<Food>.broadcast();
+    _recordingDataController = StreamController<Uint8List>.broadcast();
     _dbLevelController = StreamController<double>.broadcast();
   }
 

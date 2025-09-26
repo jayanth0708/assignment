@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sound/flutter_sound.dart';
 import '../../models/patient.dart';
 import '../../services/api_service.dart';
 import '../../services/audio_recording_service.dart';
@@ -173,19 +174,19 @@ class _RecordingScreenState extends State<RecordingScreen> with WidgetsBindingOb
               if (!_isRecording && _statusMessage.startsWith("Error")) ...[
                 Icon(Icons.error_outline, color: Colors.red, size: 60),
                 const SizedBox(height: 20),
-                Text(_statusMessage, style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center,),
+                Text(_statusMessage, style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
               ]
               else if (!_isRecording) ...[
                 const CircularProgressIndicator(),
                 const SizedBox(height: 20),
-                Text(_statusMessage, style: Theme.of(context).textTheme.headline6),
+                Text(_statusMessage, style: Theme.of(context).textTheme.titleLarge),
               ] else ...[
                 Text(
                   _formatDuration(_durationInSeconds),
-                  style: Theme.of(context).textTheme.headline2,
+                  style: Theme.of(context).textTheme.displayMedium,
                 ),
                 const SizedBox(height: 10),
-                Text(_statusMessage, style: Theme.of(context).textTheme.bodyText1),
+                Text(_statusMessage, style: Theme.of(context).textTheme.bodyLarge),
                 const SizedBox(height: 40),
                 LinearProgressIndicator(value: _dbLevel, backgroundColor: Colors.grey[300],),
                 const SizedBox(height: 60),
